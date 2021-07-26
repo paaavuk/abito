@@ -1,4 +1,4 @@
 # Abito - сайт объявлений
 GLO Acagemy Intensive
 
-## paaavuk
+by paaavuk
