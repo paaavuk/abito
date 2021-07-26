@@ -2,4 +2,3 @@
 GLO Acagemy Intensive
 
 ## paaavuk
-### HTML, CSS
