@@ -11,3 +11,14 @@ const swiper2 = new Swiper(".mySwiper2", {
         swiper: swiper,
     },
 });
+
+
+const mb = document.querySelector('.menu-button');
+const cb = document.querySelector('.menu-close');
+
+function toggleMenu() {
+    document.querySelector('.navbar-panel').classList.toggle('navbar-panel--active');
+}
+
+mb.addEventListener('click', toggleMenu);
+cb.addEventListener('click', toggleMenu);

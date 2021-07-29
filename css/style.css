@@ -22,6 +22,12 @@ body {
     margin-bottom: 24px;
 }
 
+.navbar-panel {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
 .navbar-menu {
     margin-right: auto;
 }
@@ -60,6 +66,22 @@ body {
     color: #fff;
 }
 
+.menu-button,
+.menu-close {
+    background-color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-button::before {
+    content: url('data:image/svg+xml; utf8, %3Csvg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0.937476 9.37501H29.0624C29.58 9.37501 29.9999 8.95498 29.9999 8.43754C29.9999 7.92002 29.5799 7.50006 29.0624 7.50006H0.937476C0.419955 7.50006 0 7.92009 0 8.43754C0 8.95498 0.420033 9.37501 0.937476 9.37501Z" fill="black"/%3E%3Cpath d="M29.0624 14.0626H0.937476C0.419955 14.0626 0 14.4826 0 15C0 15.5175 0.420033 15.9375 0.937476 15.9375H29.0624C29.58 15.9375 29.9999 15.5175 29.9999 15C29.9999 14.4826 29.58 14.0626 29.0624 14.0626Z" fill="black"/%3E%3Cpath d="M29.0625 20.625H10.3125C9.79495 20.625 9.375 21.0451 9.375 21.5625C9.375 22.08 9.79503 22.5 10.3125 22.5H29.0625C29.58 22.5 29.9999 22.0799 29.9999 21.5625C30 21.045 29.58 20.625 29.0625 20.625Z" fill="black"/%3E%3C/svg%3E%0A');
+}
+
+.menu-close::before {
+    content: url('data:image/svg+xml; utf8, %3Csvg width="32" height="31" viewBox="0 0 32 31" fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M1 0.5L31 30.5M1 30.5L31 0.5" stroke="black"/%3E%3C/svg%3E%0A');
+}
+
 .search-panel {
     background: #256EEB;
     border-radius: 5px;
@@ -85,6 +107,7 @@ body {
     padding-right: 17px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .search-button-text {
@@ -94,7 +117,7 @@ body {
 .page-content {
     display: grid;
     grid-template-columns: 9fr 3fr;
-    grid-column-gap: 30px;
+    grid-column-gap: 10px;
 }
 
 .page-title {
@@ -111,11 +134,9 @@ body {
 .card {
     max-width: 264px;
     margin-bottom: 20px;
-}
-
-.card:not(:nth-child(3n)) {
     margin-right: 20px;
 }
+
 
 .card-header {
     display: flex;
@@ -169,6 +190,11 @@ body {
     line-height: 21px;
 }
 
+.sidebar-banner {
+    width: 100%;
+    height: auto
+}
+
 .service {
     margin-bottom: 25px;
 }
@@ -211,7 +237,8 @@ body {
 
 .main-single {
     display: flex;
-    align-items: flex-start
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .content {
@@ -269,6 +296,7 @@ body {
 .content-text {
     font-size: 14px;
     line-height: 140%;
+    margin-bottom: 36px;
 }
 
 .author {
@@ -338,4 +366,138 @@ body {
 .button-success {
     background-color: #14B4BE;
     color: #FFFFFF;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .card {
+        max-width: 45%;
+        width: 45%;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 250px
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 740px;
+    }
+
+    .card-image {
+        height: 150px
+    }
+
+    .content {
+        max-width: 450px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-content {
+        grid-template-columns: 8fr 4fr;
+    }
+
+    .container {
+        max-width: 560px;
+    }
+
+    .card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .menu-close {
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .navbar-panel {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        z-index: 10;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, opacity 0.2s;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .navbar-panel--active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .navbar-menu {
+        margin-left: auto;
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-item:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        max-width: 346px
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .page-content {
+        grid-template-columns: 12fr;
+    }
+
+    .card {
+        margin-right: 0;
+    }
+
+    .card-image {
+        height: 200px
+    }
+
+    .search-button-text {
+        display: none;
+    }
+
+    .main-single {
+        justify-content: center
+    }
+
+    .content {
+        max-width: 90vw
+    }
+
 }
