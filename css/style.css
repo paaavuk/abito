@@ -301,6 +301,7 @@ body {
 
 .author {
     min-width: 264px;
+    width: 100%
 }
 
 .single-price {
