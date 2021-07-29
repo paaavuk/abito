@@ -383,6 +383,10 @@ body {
         width: 100%;
         height: 250px
     }
+    
+    .author {
+        width: 264px;
+    }
 }
 
 @media (max-width: 992px) {
